@@ -1,0 +1,14 @@
+.container {
+    max-width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    
+}
+
+.header {
+    height: 7rem;
+    background: var(--color-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

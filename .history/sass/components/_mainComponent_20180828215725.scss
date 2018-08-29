@@ -1,0 +1,43 @@
+
+//////////////////////////////////////////
+// Header
+    
+.logo {
+    width: 25rem;
+    padding: 0 2rem;
+    
+    border-right: var(--line);
+    background: var(--color-background-dark);
+    h1 {
+
+        align-self: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 2rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        padding: 2.5rem 0;
+        color: var(--color-white);
+
+    }
+}
+.page_title {
+    width: 30rem;
+    text-align: center;
+    h2 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+    }
+}
+.user-nav {
+    width: 30rem;
+}
+
+.content {
+
+    display: flex;
+}
+
+

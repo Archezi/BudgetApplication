@@ -1,0 +1,23 @@
+.container {
+    max-width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    
+}
+
+.header {
+    height: 7rem;
+    background: var(--color-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sidebar {
+    
+    background-color: var(--color-background-light);
+    lex: 0 0 18%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

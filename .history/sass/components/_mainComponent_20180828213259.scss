@@ -1,0 +1,28 @@
+.container {
+    max-width: 114rem;
+    margin: 0 auto;
+}
+//////////////////////////////////////////
+// Header
+
+.header {
+    height: 7rem;
+    background: var(--color-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    & > * {
+        
+    }
+    .logo {
+        width: 20rem;
+    }
+    .page_title {
+        width: 30rem;
+        
+    }
+    .user-nav {
+        width: 30rem;
+    }
+}
