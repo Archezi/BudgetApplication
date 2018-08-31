@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"  media="screen,projection"/>
+    <!-- Website style.css-->
+    <link rel="stylesheet" href="css/style.comp.css">
+     
+    <title>Budget Application</title>
+
+</head>
+<body>
+   <div class="web__container">
+        <header class="header">
+            <div class="logo">
+                <h1>Lukasz Kaczmarek</h1>
+            </div>
+            <div class="page_title">
+                <h2>Budget</h2>
+            </div> 
+            <div class="user-nav">
+                <div class="user-nav__icon"></div>
+                <div class="user-nav__profile">
+                    <img src="https://source.unsplash.com/random/40x40" alt="">
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <nav class="sidebar">
+                <ul class="side-nav">
+                    <li class="side-nav__item side-nav__item--active">
+                        <a href="#" class="side-nav__link">
+                                <svg class="side-nav__icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+                                    <path fill="#fff" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
+                                </svg>
+                            <span>Title</span>
+                        </a>
+                    </li>
+                    <li class="side-nav__item ">
+                        <a href="#" class="side-nav__link">
+                            <svg class="side-nav__icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+                                <path fill="#000000" d="M2,5V19H8V5H2M9,5V10H15V5H9M16,5V14H22V5H16M9,11V19H15V11H9M16,15V19H22V15H16Z" />
+                            </svg>
+                            <span>Title</span>
+                        </a>
+                    </li>
+                    <li class="side-nav__item ">
+                        <a href="#" class="side-nav__link">
+                            <svg class="side-nav__icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+                                <path fill="#000000" d="M2,5V19H8V5H2M9,5V10H15V5H9M16,5V14H22V5H16M9,11V19H15V11H9M16,15V19H22V15H16Z" />
+                            </svg>
+                            <span>Title</span>
+                        </a>
+                    </li>
+                    <li class="side-nav__item ">
+                        <a href="#" class="side-nav__link">
+                            <svg class="side-nav__icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+                                <path fill="#000000" d="M2,5V19H8V5H2M9,5V10H15V5H9M16,5V14H22V5H16M9,11V19H15V11H9M16,15V19H22V15H16Z" />
+                            </svg>
+                            <span>Title</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="legal">
+                    &copy; 2018 by Lukasz Kaczmarek. All rights reserved.
+                </div>
+            </nav>
+
+            <div class="main">
+
+                <div class="overview">
+                    <div class="total__available-funds">
+                        <svg style="width:48px;height:48px" viewBox="0 0 24 24">
+                            <path fill="#000000" d="M5,6H23V18H5V6M14,9A3,3 0 0,1 17,12A3,3 0 0,1 14,15A3,3 0 0,1 11,12A3,3 0 0,1 14,9M9,8A2,2 0 0,1 7,10V14A2,2 0 0,1 9,16H19A2,2 0 0,1 21,14V10A2,2 0 0,1 19,8H9M1,10H3V20H19V22H1V10Z" />
+                        </svg>
+                        <div class="total-funds">$2200</div>
+                        <div class="total-funds-description">Available funds</div>
+                    </div>
+                    <div class="total__income">
+                        <svg style="width:48px;height:48px" viewBox="0 0 24 24">
+                            <path fill="#000000" d="M7,15H9C9,16.08 10.37,17 12,17C13.63,17 15,16.08 15,15C15,13.9 13.96,13.5 11.76,12.97C9.64,12.44 7,11.78 7,9C7,7.21 8.47,5.69 10.5,5.18V3H13.5V5.18C15.53,5.69 17,7.21 17,9H15C15,7.92 13.63,7 12,7C10.37,7 9,7.92 9,9C9,10.1 10.04,10.5 12.24,11.03C14.36,11.56 17,12.22 17,15C17,16.79 15.53,18.31 13.5,18.82V21H10.5V18.82C8.47,18.31 7,16.79 7,15Z" />
+                        </svg>
+                        <div class="total__income-funds">$2,500</div>
+                        <div class="total__income-description">Total Income</div>    
+                        
+                    </div>
+                    <div class="total__expenses">
+                        <svg style="width:48px;height:48px" viewBox="0 0 24 24">
+                            <path fill="#000000" d="M3,4.27L4.28,3L21,19.72L19.73,21L16.06,17.33C15.44,18 14.54,18.55 13.5,18.82V21H10.5V18.82C8.47,18.31 7,16.79 7,15H9C9,16.08 10.37,17 12,17C13.13,17 14.14,16.56 14.65,15.92L11.68,12.95C9.58,12.42 7,11.75 7,9C7,8.77 7,8.55 7.07,8.34L3,4.27M10.5,5.18V3H13.5V5.18C15.53,5.69 17,7.21 17,9H15C15,7.92 13.63,7 12,7C11.63,7 11.28,7.05 10.95,7.13L9.4,5.58L10.5,5.18Z" />
+                        </svg>
+                        <div class="total__expenses-funds">$1,500 <span class="total__expenses-percentage">( 45% )</span></div>
+                        <div class="total__expenses-description">Total Expenses</div>
+                        
+                        
+
+                    </div>
+                </div>
+                <div class="input__section-wrapper">
+                    <div class="input__section">
+                        <select  class="form-control input__type ">
+                            <!-- <option value="" >Choose type</option> -->
+                            <option class="input__option" value="inc">Income</option>
+                            <option class="input__option" value="exp">Expense</option>
+                        </select>
+                        <input placeholder="Description" class="form-control input__description" type="text">
+                        <input placeholder="Value" class="form-control input__value" type="text">
+                        <button class="shadow btn input__btn add__btn">Add Funds
+                                <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                                    <path fill="#000000" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                
+
+
+                <div class="budget">
+                    <div class="available-funds-panel">
+                        <div class="available-funds__title">Available found each month</div>
+                        <div class="available-found__value">$2,500</div>
+                        <div class="available-found__deposit">$500</div>
+                        <div class="available-found__deposit--percentage">20% ($500)</div>
+                        <div class="available-found__btn add__btn">
+                            <i></i>add
+                        </div>
+                    </div>
+                    
+                    <div class="history-panel">
+                        <div class="history-panel--title">History</div>
+                        <div class="history__income-container">
+                            <div class="history__income-title">Income</div>
+                            
+                            <!--
+                                
+                            <div class="list-item" id="income-0">
+                                <div class="item__description">Salary</div>
+                                <div class="right">
+                                    <div class="item__value">2,100</div>
+                                    <div class="item__delete">
+                                        <button type="button" class="item__delete--btn  ">
+                                                <svg style="width:12px;height:12px" viewBox="0 0 24 24">
+                                                    <path fill="#000000" d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z" />
+                                                </svg>
+                                        </button>
+                                    </div>    
+                                </div>
+                            </div>
+
+                            -->
+                        </div>
+
+
+                        <div class="history__expense-container">
+                            <div class="history__expense-title">Expenses</div>
+
+                            <!--
+
+                            <div class="list-item" id="expense-0">
+                                <div class="item__description">Salary</div>
+                                <div class="right">
+                                    <div class="item__value">2,100</div>
+                                    <div class="item__delete">
+                                        <button type="button" class="item__delete--btn  ">
+                                                <svg style="width:12px;height:12px" viewBox="0 0 24 24">
+                                                    <path fill="#000000" d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z" />
+                                                </svg>
+                                        </button>
+                                    </div>    
+                                </div>
+                            </div>
+
+                            -->
+                            
+                        </div>
+
+                    </div>
+                    
+                </div>
+                <!-- <div class="statistics">
+                    <div class="net-profit-panel"></div>
+                    <div class="tax-panel"></div>
+                    <div class="savings-panel"></div>
+                    <div class="projections"></div>
+
+                </div>
+                <div class="statistics">
+                    <div class="net-profit-panel"></div>
+                    <div class="tax-panel"></div>
+                    <div class="savings-panel"></div>
+                    <div class="projections"></div>
+
+                </div> -->
+                
+
+                
+            </div>
+
+            
+        </div>
+
+        
+
+        
+   </div>
+
+   <!-- Compiled and minified JavaScript -->
+   <script src="js/jquery.min.js"></script>
+   <script src="js/bootstrap.js"></script>
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script> -->
+   <script src="js/myscript.js"></script>
+</body>
+</html>

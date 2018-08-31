@@ -1,0 +1,294 @@
+.web__container {
+    max-width: 100% !important;
+    min-height: 100vh;
+    margin: 0 auto;
+    
+}
+
+.header {
+    height: $header-height;
+    background: var(--color-white);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+.content {
+    
+}
+
+///////////////////////////////////////
+// SIDEBAR  
+
+.sidebar {
+    border-right: var(--line);
+    background-color: var(--color-background-light);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 25rem;
+    margin-top: $header-height;
+    // width: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: calc(100vh );
+    z-index: 999;
+}
+
+//////////////////////////////////////////
+// MAIN
+.main {
+    margin-top: $header-height;
+    padding: 4rem 4rem 7rem 29rem;
+    width: 100%;
+    min-height: calc(100vh - 7rem);
+    display: grid;
+    grid-gap: 2rem;
+    grid-auto-rows: minmax(5rem, auto);
+
+
+
+    ////////////////////////////////////////
+    // OVERVIEW
+    .overview {
+        display: grid;
+        grid-gap: 2rem;
+        grid-template-columns: repeat(3, 1fr);
+        
+        & > * {
+            background: var(--color-white);
+        }
+        
+        .total {
+            &__available-funds {
+                display: grid;
+                grid-template-columns: 10rem 10rem;
+                grid-auto-rows: auto;
+                align-items: center;
+                justify-content: center;
+                svg {
+                    justify-self: center;
+                    grid-row: span 2;
+                    path {
+                        fill: var(--color-background-dark);
+                    }
+                }
+            }
+            &-funds {
+                font-size: 1.5rem;
+                font-weight: 400;
+                align-self: end;
+            }
+            &-funds-description {
+                font-size: 1.2rem;
+                font-weight: 400;
+                align-self: start;
+            }
+
+            &__income {
+
+                display: grid;
+                grid-template-columns: 10rem 10rem;
+                grid-auto-rows: auto;
+                align-items: center;
+                justify-content: center;
+
+                svg {
+                    justify-self: center;
+                    grid-row: span 2;
+                    path {
+                        fill: var(--button-secondary-green);
+                    }
+                }
+                &-funds {
+                    font-size: 1.5rem;
+                    font-weight: 400;
+                    align-self: end;
+                }
+                &-description {
+                    font-size: 1.2rem;
+                    font-weight: 400;
+                    align-self: start;
+                }
+            }
+            &__expenses {
+                display: grid;
+                grid-template-columns: 10rem 10rem;
+                grid-auto-rows: auto;
+                align-items: center;
+                justify-content: center;
+
+                svg {
+                    justify-self: center;
+                    grid-row: span 2;
+                    path {
+                        fill: var(--button-secondary-red);
+                    }
+                    
+                    
+                }
+                &-funds {
+                    font-size: 1.5rem;
+                    font-weight: 400;
+                    align-self: end;
+                }
+                &-description {
+                    font-size: 1.2rem;
+                    font-weight: 400;
+                    align-self: start;
+                }
+            }
+        }
+
+
+    }
+
+    ////////////////////////////////////////
+    // INPUT BAR
+    .input {
+        &__section-wrapper {
+            display: grid;
+            
+            background: var(--color-white);
+            align-content: center;
+            justify-content: center;
+            
+        }
+        &__section {
+            display: grid;
+            grid-gap: 1rem;
+            grid-template-columns: repeat(12, 1fr);
+            align-items: center;
+            
+            .form-control {
+                height: 4rem;
+                border-radius: 0;
+                border-color: var(--color-grey-light-2);
+            }
+        }
+        &__type {
+            grid-column: 2 / span 2;
+        }
+        &__description {
+            grid-column: 4 / span 5;
+        }
+        &__value {
+            grid-column: 9 / span 1;
+        }
+        &__btn {
+            grid-column: 10 / span 1;
+            
+        }
+
+    }
+    ////////////////////////////////////////
+    // BUDGET   
+    .budget {
+        display: grid;
+        grid-gap: 2rem;
+        grid-template-columns: repeat(3, 1fr);
+        grid-row: span 3;
+        & > * {
+            background: var(--color-white);
+        }
+
+        ////////////////////////////////////////
+        // BUDGET - STATISTICS
+        .history-panel {
+            grid-column: 2 / span 2;
+            grid-row: 1/ span 3;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 8fr;
+            &--title {
+                grid-column: span 2;
+                align-self: center;
+                padding:0 2rem;
+            }
+
+        }
+        .history__income {
+            &-container {
+                padding: 2rem;
+            }
+            &-list-item {
+                margin: 0.5rem 0;
+                font-size: 1.2rem;
+                line-height: 1.4em;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                justify-content: space-between;
+                align-items: center;
+                height: 2rem;
+                border-bottom:0.05rem solid var(--color-grey-light-3);
+                transition: all 0.4s ease-in-out;
+                &:hover {
+
+                        .item__delete {
+                            display: block;
+                            padding-left: 1rem;
+                        }
+                    
+                }
+            }
+            &-left {
+                grid-column: span 3;
+                
+            }
+            &-right {
+                justify-self: end;
+                align-self: center;
+                display: grid;
+                grid-column: span 1;
+                grid-auto-flow: column;
+                
+                .item__value {
+
+                }
+                .item__delete {
+                    display: none;
+                    padding-left: 0;
+                    
+                    .item__delete--btn {
+                        background: transparent;
+                        border: none;
+                        svg {
+                            path {
+                                fill:  var(--button-secondary-red);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ////////////////////////////////////////
+    // BUDGET - STATISTICS
+    .statistics {
+        display: grid;
+        grid-gap: 2rem;
+        grid-template-columns: repeat(4, 1fr);
+
+        & > * {
+            background: var(--color-white);
+        }
+
+    }
+}
+
+
+//////////////////////////////////////////////@at-root
+// Footer
+.footer {
+    position: absolute;
+    bottom: 0;
+    background: var(--color-white);
+    z-index: 1;
+    height: $header-height;
+    width: calc(100%);
+    z-index: 100;
+}

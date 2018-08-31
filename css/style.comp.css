@@ -51,6 +51,7 @@ table {
   --color-primary-dark: #BA265D;
   --color-background-dark: #3C3B53;
   --color-background-light: #43425D;
+  --color-grey-light-0: rgba(250, 249, 249, 0.5);
   --color-grey-light-1: #faf9f9;
   --color-grey-light-2: #f4f2f2;
   --color-grey-light-3: #f0eeee;
@@ -61,6 +62,10 @@ table {
   --color-white: #fff;
   --shadow-dark: 0 2rem 6rem rgba(0,0,0,.3);
   --shadow-light: 0 2rem 5rem rgba(0,0,0,.06);
+  --button-primary-blue: #4c84ff;
+  --button-primary-blue-darker: #2d69eb;
+  --button-secondary-green: #2bcb98;
+  --button-secondary-red: #FF6565;
   --line: 1px solid var(--color-grey-light-2); }
 
 * {
@@ -125,7 +130,8 @@ body {
   list-style: none;
   margin-top: 3.5rem; }
   .side-nav__item {
-    position: relative; }
+    position: relative;
+    float: none; }
     .side-nav__item:not(:last-child) {
       margin-bottom: .5rem; }
   .side-nav__item::before {
@@ -175,14 +181,159 @@ body {
         width: 1.5rem;
         height: 1.5rem; } }
 
-.container {
-  max-width: 100%;
+.overview > * {
+  background: var(--color-white); }
+
+.overview .total__available-funds svg path {
+  fill: var(--color-background-dark); }
+
+.overview .total-funds {
+  font-size: 2.4rem;
+  line-height: 3rem;
+  font-weight: 400;
+  color: var(--color-background-dark); }
+
+.overview .total-funds-description {
+  font-size: 1.2rem;
+  font-weight: 400; }
+
+.overview .total__income {
+  display: grid;
+  grid-template-columns: 10rem 10rem;
+  grid-auto-rows: auto;
+  align-items: center;
+  justify-content: center; }
+  .overview .total__income svg path {
+    fill: var(--button-secondary-green); }
+  .overview .total__income-funds {
+    font-size: 2.4rem;
+    line-height: 3rem;
+    font-weight: 400;
+    color: var(--button-secondary-green); }
+  .overview .total__income-description {
+    font-size: 1.2rem;
+    font-weight: 400;
+    align-self: start; }
+
+.overview .total__expenses svg path {
+  fill: var(--button-secondary-red); }
+
+.overview .total__expenses-value {
+  color: var(--button-secondary-red); }
+
+.overview .total__expenses-funds {
+  font-size: 2.4rem;
+  line-height: 3rem;
+  font-weight: 400; }
+
+.overview .total__expenses-percentage {
+  font-size: 1.5rem;
+  font-weight: 400; }
+
+.overview .total__expenses-description {
+  font-size: 1.2rem;
+  font-weight: 400; }
+
+.input__section-wrapper {
+  background: var(--color-grey-light-2); }
+
+.input__section .form-control {
+  font-size: 1.8rem;
+  border-radius: 0;
+  border-color: var(--color-grey-light-2); }
+
+.input__option {
+  width: 100%; }
+
+.input__btn {
+  position: relative;
+  border-radius: 3rem;
+  width: 15rem;
+  height: 3rem;
+  color: var(--color-white);
+  background: var(--button-primary-blue);
+  text-align: left;
+  text-transform: uppercase;
+  padding-left: 2rem; }
+  .input__btn svg {
+    position: absolute;
+    top: 50%;
+    right: .4rem;
+    background-color: var(--button-primary-blue-darker);
+    border-radius: 50%;
+    transform: translateY(-50%); }
+    .input__btn svg path {
+      fill: var(--color-white); }
+
+.history__income-title,
+.item__value-income {
+  color: var(--button-secondary-green); }
+
+.history__expense-title,
+.item__value-expense {
+  color: var(--button-secondary-red); }
+
+.list-item {
+  margin: 0.5rem 0;
+  font-size: 1.6rem;
+  line-height: 1.7em;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  align-items: center;
+  height: 2rem;
+  border-bottom: 0.05rem solid var(--color-grey-light-3);
+  transition: transform 0.3s;
+  transition: border 0.3s;
+  transition: background-color 0.3s; }
+  .list-item:hover {
+    border-bottom: 0.05rem solid var(--button-primary-blue); }
+    .list-item:hover .item__delete--btn {
+      display: block; }
+    .list-item:hover .item__value {
+      transform: translateX(-2rem); }
+    .list-item:hover .item__delete--btn {
+      transform: translateX(-1rem);
+      opacity: 1; }
+
+.right {
+  transition: transform 0.6s; }
+
+.item__value {
+  transition: transform 0.3s; }
+
+.item__delete {
+  transition: transform 0.3s;
+  transition: opacity 1s; }
+  .item__delete .item__delete--btn {
+    transition-delay: 2s;
+    opacity: 0;
+    transition: transform 2s;
+    transition: opacity 1s;
+    background: transparent;
+    float: right;
+    border: none;
+    display: none;
+    cursor: pointer; }
+    .item__delete .item__delete--btn svg path {
+      fill: var(--button-secondary-red); }
+
+.history-panel--title,
+.history__expense-title,
+.history__income-title {
+  font-size: 1.5rem; }
+
+.web__container {
+  max-width: 100% !important;
   min-height: 100vh;
   margin: 0 auto; }
 
 .header {
   height: 7rem;
   background: var(--color-white);
+  position: fixed;
+  top: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -195,7 +346,7 @@ body {
   left: 0;
   top: 0;
   width: 25rem;
-  padding-top: 7rem;
+  margin-top: 7rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -203,29 +354,120 @@ body {
   z-index: 999; }
 
 .main {
+  margin-top: 7rem;
   padding: 4rem 4rem 7rem 29rem;
   width: 100%;
   min-height: calc(100vh - 7rem);
   display: grid;
   grid-gap: 2rem;
-  grid-auto-rows: minmax(20rem, auto); }
+  grid-auto-rows: 20rem 10rem auto; }
+  .main .overview {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(3, 1fr); }
+    .main .overview .total__available-funds {
+      display: grid;
+      grid-template-columns: 10rem 10rem;
+      grid-auto-rows: auto;
+      align-items: center;
+      justify-content: center; }
+      .main .overview .total__available-funds svg {
+        justify-self: center;
+        grid-row: span 2; }
+    .main .overview .total-funds {
+      align-self: end; }
+    .main .overview .total-funds-description {
+      align-self: start; }
+    .main .overview .total__income {
+      display: grid;
+      grid-template-columns: 10rem 10rem;
+      grid-auto-rows: auto;
+      align-items: center;
+      justify-content: center; }
+      .main .overview .total__income svg {
+        justify-self: center;
+        grid-row: span 2; }
+      .main .overview .total__income-funds {
+        align-self: end; }
+      .main .overview .total__income-description {
+        align-self: start; }
+    .main .overview .total__expenses {
+      display: grid;
+      grid-template-columns: 10rem 10rem;
+      grid-auto-rows: auto;
+      align-items: center;
+      justify-content: center; }
+      .main .overview .total__expenses svg {
+        justify-self: center;
+        grid-row: span 2; }
+      .main .overview .total__expenses-value {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1rem;
+        align-self: end;
+        align-items: center; }
+      .main .overview .total__expenses-funds {
+        align-self: end; }
+      .main .overview .total__expenses-description {
+        align-self: start; }
+  .main .input__section-wrapper {
+    display: grid;
+    align-content: center;
+    justify-content: center; }
+  .main .input__section {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center; }
+    .main .input__section .form-control {
+      height: 5rem; }
+  .main .input__type {
+    grid-column: 2 / span 2; }
+  .main .input__description {
+    grid-column: 4 / span 5; }
+  .main .input__value {
+    grid-column: 9 / span 1; }
+  .main .input__btn {
+    grid-column: 10 / span 1; }
   .main .budget {
     display: grid;
     grid-gap: 2rem;
-    grid-template-columns: repeat(4, 1fr);
-    grid-row: span 2; }
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: minmax(1fr, auto); }
     .main .budget > * {
       background: var(--color-white); }
-    .main .budget .history-panel {
-      grid-column: 2 / span 2;
-      grid-row: 1 / span 2;
-      grid-auto-rows: 1fr; }
-  .main .statistics {
+
+.available-funds-panel {
+  grid-row: span 3; }
+
+.history-panel {
+  grid-column: 2 / span 2;
+  grid-row: 1/ span 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 8fr; }
+  .history-panel--title {
+    grid-column: span 2;
+    align-self: center;
+    padding: 0 2rem; }
+  .history-panel .history__income-container,
+  .history-panel .history__expense-container {
+    padding: 2rem; }
+
+.history__expense-title,
+.history__income-title {
+  margin: 0 0 1rem; }
+
+.list-item {
+  height: 4rem; }
+  .list-item .item__description {
+    grid-column: span 3; }
+  .list-item .right {
+    justify-self: end;
+    align-self: center;
     display: grid;
-    grid-gap: 2rem;
-    grid-template-columns: repeat(4, 1fr); }
-    .main .statistics > * {
-      background: var(--color-white); }
+    grid-column: span 1;
+    grid-auto-flow: column; }
 
 .footer {
   position: absolute;

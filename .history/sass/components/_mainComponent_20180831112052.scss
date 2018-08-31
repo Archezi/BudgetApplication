@@ -1,0 +1,335 @@
+
+//////////////////////////////////////////
+// Header
+    
+.logo {
+    width: 25rem;
+    padding: 0 2rem;
+    
+    border-right: var(--line);
+    background: var(--color-background-dark);
+    h1 {
+
+        align-self: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 2rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        padding: 2.5rem 0;
+        color: var(--color-white);
+
+    }
+}
+.page_title {
+    width: 30rem;
+    text-align: center;
+    h2 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+    }
+}
+.user-nav {
+    width: 30rem;
+}
+////////////////////////////////////////
+// SIDE NAV
+.side-nav {
+    font-size: 1.5rem;
+    list-style: none;
+    margin-top: 3.5rem; 
+
+    &__item {
+        position: relative;
+        float: none;
+        &:not(:last-child) {
+            margin-bottom: .5rem;
+        }
+    }
+    &__item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 3px;
+        background-color: var(--color-background-dark);
+        transform: scaleY(0);
+        transition: transform .2s,
+                    width .4s cubic-bezier(1,0,0,1) .2s,
+                    background-color .1s;
+    }
+
+    &__item:hover::before,
+    &__item--active::before {
+        transform: scaleY(1);
+        width: 100%;
+    }
+
+    &__item:active::before {
+        background-color: var(--color-background-light);
+    }
+
+    &__link:link,
+    &__link:visited {
+        color: var(--color-grey-light-1);
+        text-decoration: none;
+        text-transform: uppercase;
+        display: block;
+        padding: 1.5rem 3rem;
+        position: relative;
+        z-index: 10;
+
+        display: flex;
+        align-items: center;
+
+        @media only screen and (max-width: $bp-medium) {
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            flex-direction: column;
+            padding: 1.5rem .5rem;
+        }
+    }
+
+    &__icon {
+        width: 1.75rem;
+        height: 1.75rem;
+        margin-right: 2rem;
+        fill: currentColor;
+        path {
+            fill: #fff;
+        }
+        @media only screen and (max-width: $bp-small) {
+            margin-right: 0;
+            margin-bottom: .7rem;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+}
+////////////////////////////////////////
+// OVERVIEW
+.overview {
+       
+    & > * {
+        background: var(--color-white);
+    }
+    
+    .total {
+        &__available-funds {
+            svg {
+                path {
+                    fill: var(--color-background-dark);
+                }
+            }
+        }
+        &-funds {
+            font-size: 2.4rem;
+            line-height:3rem;
+            font-weight: 400;
+            color: var(--color-background-dark);
+        }
+        &-funds-description {
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        &__income {
+
+            display: grid;
+            grid-template-columns: 10rem 10rem;
+            grid-auto-rows: auto;
+            align-items: center;
+            justify-content: center;
+            svg {
+                path {
+                    fill: var(--button-secondary-green);
+                }
+            }
+            &-funds {
+                font-size: 2.4rem;
+                line-height:3rem;
+                font-weight: 400;
+                color: var(--button-secondary-green);
+            }
+            &-description {
+                font-size: 1.2rem;
+                font-weight: 400;
+                align-self: start;
+            }
+        }
+        &__expenses {
+            svg {
+                path {
+                    fill: var(--button-secondary-red);
+                }
+            }
+            &-value {
+                color: var(--button-secondary-red);
+            }
+            
+            &-funds {
+                font-size: 2.4rem;
+                line-height:3rem;
+                font-weight: 400;
+            }
+            &-percentage {
+                font-size: 1.5rem;
+                font-weight: 400;
+            }
+            &-description {
+                font-size: 1.2rem;
+                font-weight: 400;
+            }
+        }
+    }
+
+
+}
+
+////////////////////////////////////////
+// INPUT BAR
+.input {
+    &__section-wrapper {
+        background: var(--color-grey-light-2);
+    }
+    &__section {
+                
+        .form-control {
+            font-size: 1.8rem;
+            border-radius: 0;
+            border-color: var(--color-grey-light-2);
+        }
+    }
+    &__type {
+        
+    }
+    &__description {
+        
+    }
+    &__value {
+
+    }
+    &__option {
+        width: 100%;
+    }
+    &__btn {
+        position: relative;
+        border-radius: 3rem;
+        width: 15rem;
+        height: 3rem;
+        color: var(--color-white);
+        background: var(--button-primary-blue);
+        text-align: left;
+        text-transform: uppercase;
+        padding-left: 2rem;
+        svg {
+            position: absolute;
+            top: 50%;
+            right: .4rem;
+            background-color: var(--button-primary-blue-darker);
+            border-radius: 50%;
+            transform: translateY(-50%);
+            path { fill: var(--color-white);}
+        }
+    }
+
+}
+
+////////////////////////////////////////
+// AVAILABLE FUNDS PANEL
+.available-funds {
+
+    &-panel {
+
+    }
+    &__title {
+
+    }
+    &__value {
+
+    }
+    &__deposit {
+
+    }
+    &__deposit--percentage {
+
+    }
+
+} 
+
+////////////////////////////////////////
+// HISTORY CONTAINER
+.list-item {
+    
+        margin: 0.5rem 0;
+        font-size: 1.6rem;
+        line-height: 1.4em;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        justify-content: space-between;
+        align-items: center;
+        height: 2rem;
+        border-bottom:0.05rem solid var(--color-grey-light-3);
+        transition: transform 0.3s ;
+        transition: border 0.3s;
+        transition: background-color 0.3s;
+
+        &:hover {
+            // background-color: var(--color-grey-light-0);
+            border-bottom: 0.05rem solid var(--button-primary-blue);
+            .item__delete--btn {
+                 display: block;
+            }
+            // .history__income-right { transform: translateX(-2rem); }
+            .item__value { transform: translateX(-2rem); }
+            .item__delete--btn { 
+                transform: translateX(-1rem);
+                opacity: 1;
+             }
+        }
+}
+.right {
+    transition: transform 0.6s ;
+}
+.item__value {
+    transition: transform 0.3s ;
+}
+.item__delete {
+    transition: transform 0.3s ;
+    transition: opacity 1s ;
+    
+    
+    
+    
+    .item__delete--btn {
+        transition-delay: 2s;
+        opacity: 0;
+        transition: transform 2s ;
+        transition: opacity 1s ;
+        background: transparent;
+        float: right;
+        border: none;
+        display: none;
+        cursor: pointer;
+        svg {
+            
+            path {
+                fill:  var(--button-secondary-red);
+            }
+        }
+    }
+}
+
+
+.history-panel--title,
+.history__expense-title,
+.history__income-title {
+    font-size: 1.5rem;
+    
+}

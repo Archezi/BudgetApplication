@@ -1,0 +1,164 @@
+
+//////////////////////////////////////////
+// Header
+    
+.logo {
+    width: 25rem;
+    padding: 0 2rem;
+    
+    border-right: var(--line);
+    background: var(--color-background-dark);
+    h1 {
+
+        align-self: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 2rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        padding: 2.5rem 0;
+        color: var(--color-white);
+
+    }
+}
+.page_title {
+    width: 30rem;
+    text-align: center;
+    h2 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+    }
+}
+.user-nav {
+    width: 30rem;
+}
+.side-nav {
+    font-size: 1.5rem;
+    list-style: none;
+    margin-top: 3.5rem; 
+
+    &__item {
+        position: relative;
+        float: none;
+        &:not(:last-child) {
+            margin-bottom: .5rem;
+        }
+    }
+    &__item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 3px;
+        background-color: var(--color-background-dark);
+        transform: scaleY(0);
+        transition: transform .2s,
+                    width .4s cubic-bezier(1,0,0,1) .2s,
+                    background-color .1s;
+    }
+
+    &__item:hover::before,
+    &__item--active::before {
+        transform: scaleY(1);
+        width: 100%;
+    }
+
+    &__item:active::before {
+        background-color: var(--color-background-light);
+    }
+
+    &__link:link,
+    &__link:visited {
+        color: var(--color-grey-light-1);
+        text-decoration: none;
+        text-transform: uppercase;
+        display: block;
+        padding: 1.5rem 3rem;
+        position: relative;
+        z-index: 10;
+
+        display: flex;
+        align-items: center;
+
+        @media only screen and (max-width: $bp-medium) {
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            flex-direction: column;
+            padding: 1.5rem .5rem;
+        }
+    }
+
+    &__icon {
+        width: 1.75rem;
+        height: 1.75rem;
+        margin-right: 2rem;
+        fill: currentColor;
+        path {
+            fill: #fff;
+        }
+        @media only screen and (max-width: $bp-small) {
+            margin-right: 0;
+            margin-bottom: .7rem;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+}
+
+////////////////////////////////////////
+// INPUT BAR
+.input {
+    &__section-wrapper {
+        
+    }
+    &__section {
+                
+        .form-control {
+            height: 4rem;
+            border-radius: 0;
+            border-color: var(--color-grey-light-2);
+        }
+    }
+    &__type {
+        
+    }
+    &__description {
+        
+    }
+    &__value {
+
+    }
+    &__btn {
+        position: relative;
+        border-radius: 3rem;
+        width: 15rem;
+        height: 3rem;
+        color: var(--color-white);
+        background: var(--button-primary-blue);
+
+        svg {
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            
+            transform: translateY(-50%);
+            path { fill: var(--color-white);}
+
+            &::after {
+                width: 1rem;
+                height: 1rem;
+                padding: 1rem;
+                border-radius: 50%;
+                background: blue;
+            }
+        }
+    }
+
+}
+
