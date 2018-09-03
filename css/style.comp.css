@@ -98,6 +98,40 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased; }
 
+.web__container {
+  max-width: 100% !important;
+  min-height: 100vh;
+  margin: 0 auto; }
+
+.header {
+  height: 7rem;
+  background: var(--color-white);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000; }
+
+.main {
+  margin-top: 7rem;
+  padding: 4rem 4rem 7rem 29rem;
+  width: 100%;
+  min-height: calc(100vh - 7rem);
+  display: grid;
+  grid-gap: 2rem;
+  grid-auto-rows: 20rem 10rem auto; }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  background: var(--color-white);
+  z-index: 1;
+  height: 7rem;
+  width: calc(100%);
+  z-index: 100; }
+
 .logo {
   width: 25rem;
   padding: 0 2rem;
@@ -323,22 +357,6 @@ body {
 .history__income-title {
   font-size: 1.5rem; }
 
-.web__container {
-  max-width: 100% !important;
-  min-height: 100vh;
-  margin: 0 auto; }
-
-.header {
-  height: 7rem;
-  background: var(--color-white);
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000; }
-
 .sidebar {
   border-right: var(--line);
   background-color: var(--color-background-light);
@@ -353,89 +371,88 @@ body {
   min-height: calc(100vh);
   z-index: 999; }
 
-.main {
-  margin-top: 7rem;
-  padding: 4rem 4rem 7rem 29rem;
-  width: 100%;
-  min-height: calc(100vh - 7rem);
+.overview {
   display: grid;
   grid-gap: 2rem;
-  grid-auto-rows: 20rem 10rem auto; }
-  .main .overview {
+  grid-template-columns: repeat(3, 1fr); }
+  .overview .total__available-funds {
     display: grid;
-    grid-gap: 2rem;
-    grid-template-columns: repeat(3, 1fr); }
-    .main .overview .total__available-funds {
-      display: grid;
-      grid-template-columns: 10rem 10rem;
-      grid-auto-rows: auto;
-      align-items: center;
-      justify-content: center; }
-      .main .overview .total__available-funds svg {
-        justify-self: center;
-        grid-row: span 2; }
-    .main .overview .total-funds {
-      align-self: end; }
-    .main .overview .total-funds-description {
-      align-self: start; }
-    .main .overview .total__income {
-      display: grid;
-      grid-template-columns: 10rem 10rem;
-      grid-auto-rows: auto;
-      align-items: center;
-      justify-content: center; }
-      .main .overview .total__income svg {
-        justify-self: center;
-        grid-row: span 2; }
-      .main .overview .total__income-funds {
-        align-self: end; }
-      .main .overview .total__income-description {
-        align-self: start; }
-    .main .overview .total__expenses {
-      display: grid;
-      grid-template-columns: 10rem 10rem;
-      grid-auto-rows: auto;
-      align-items: center;
-      justify-content: center; }
-      .main .overview .total__expenses svg {
-        justify-self: center;
-        grid-row: span 2; }
-      .main .overview .total__expenses-value {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 1rem;
-        align-self: end;
-        align-items: center; }
-      .main .overview .total__expenses-funds {
-        align-self: end; }
-      .main .overview .total__expenses-description {
-        align-self: start; }
-  .main .input__section-wrapper {
-    display: grid;
-    align-content: center;
+    grid-template-columns: 10rem 10rem;
+    grid-auto-rows: auto;
+    align-items: center;
     justify-content: center; }
-  .main .input__section {
+    .overview .total__available-funds svg {
+      justify-self: center;
+      grid-row: span 2; }
+  .overview .total-funds {
+    align-self: end; }
+  .overview .total-funds-description {
+    align-self: start; }
+  .overview .total__income {
     display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: repeat(12, 1fr);
-    align-items: center; }
-    .main .input__section .form-control {
-      height: 5rem; }
-  .main .input__type {
-    grid-column: 2 / span 2; }
-  .main .input__description {
-    grid-column: 4 / span 5; }
-  .main .input__value {
-    grid-column: 9 / span 1; }
-  .main .input__btn {
-    grid-column: 10 / span 1; }
-  .main .budget {
+    grid-template-columns: 10rem 10rem;
+    grid-auto-rows: auto;
+    align-items: center;
+    justify-content: center; }
+    .overview .total__income svg {
+      justify-self: center;
+      grid-row: span 2; }
+    .overview .total__income-funds {
+      align-self: end; }
+    .overview .total__income-description {
+      align-self: start; }
+  .overview .total__expenses {
     display: grid;
-    grid-gap: 2rem;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: minmax(1fr, auto); }
-    .main .budget > * {
-      background: var(--color-white); }
+    grid-template-columns: 10rem 10rem;
+    grid-auto-rows: auto;
+    align-items: center;
+    justify-content: center; }
+    .overview .total__expenses svg {
+      justify-self: center;
+      grid-row: span 2; }
+    .overview .total__expenses-value {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 1rem;
+      align-self: end;
+      align-items: center; }
+    .overview .total__expenses-funds {
+      align-self: end; }
+    .overview .total__expenses-description {
+      align-self: start; }
+
+.input__section-wrapper {
+  display: grid;
+  align-content: center;
+  justify-content: center; }
+
+.input__section {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center; }
+  .input__section .form-control {
+    height: 5rem; }
+
+.input__type {
+  grid-column: 2 / span 2; }
+
+.input__description {
+  grid-column: 4 / span 5; }
+
+.input__value {
+  grid-column: 9 / span 1; }
+
+.input__btn {
+  grid-column: 10 / span 1; }
+
+.budget {
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: minmax(1fr, auto); }
+  .budget > * {
+    background: var(--color-white); }
 
 .available-funds-panel {
   grid-row: span 3; }
@@ -468,12 +485,3 @@ body {
     display: grid;
     grid-column: span 1;
     grid-auto-flow: column; }
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  background: var(--color-white);
-  z-index: 1;
-  height: 7rem;
-  width: calc(100%);
-  z-index: 100; }
