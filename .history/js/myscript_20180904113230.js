@@ -340,11 +340,11 @@ var UIController = (function(){
           btn.classList.toggle('red-btn');
           btnText = document.querySelector(DOMstrings.btnText);
 
-          // if (btnText.innerHTML === 'Add funds') {
-          //   btnText.innerHTML = 'Add expenses'
-          // } else {
-          //   btnText.innerHTML = 'Add funds'
-          // }
+          if (btnText.innerHTML === 'Add funds') {
+            btnText.innerHTML = 'Add expenses'
+          } else {
+            btnText.innerHTML = 'Add funds'
+          }
     },
     
 

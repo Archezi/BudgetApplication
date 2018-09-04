@@ -31,20 +31,11 @@
     display: grid;
     grid-gap: 2rem;
     grid-template-columns: repeat(3, 1fr);
-    .budget__title {
-        position: absolute;
-        width: 100%;
-        text-align: center;
-        top: 1rem;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size:1.8rem;
-    }         
+                    
     .total {
         &__available-funds {
             display: grid;
-            position: relative;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 10rem 10rem;
             grid-auto-rows: auto;
             align-items: center;
             justify-content: center;
@@ -64,7 +55,7 @@
         &__income {
 
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 10rem 10rem;
             grid-auto-rows: auto;
             align-items: center;
             justify-content: center;
@@ -83,7 +74,7 @@
         }
         &__expenses {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 10rem 10rem;
             grid-auto-rows: auto;
             align-items: center;
             justify-content: center;
@@ -188,10 +179,6 @@
     
 }
 .list-item {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    justify-content: space-between;
-    align-items: center;
     height: 4rem;
     .item__description {
         grid-column: span 3;
@@ -200,8 +187,7 @@
         justify-self: end;
         align-self: center;
         display: grid;
-        grid-gap: 0.5rem;
-        grid-column: span 3;
+        grid-column: span 1;
         grid-auto-flow: column;
     }
 }

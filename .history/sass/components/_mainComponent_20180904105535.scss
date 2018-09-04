@@ -204,11 +204,6 @@
             font-size: 1.8rem;
             border-radius: 0.5rem;
             border-color: var(--color-grey-light-2);
-            
-            &:focus {
-                border: 1px solid var(--button-primary-blue);
-                box-shadow: none;
-            }
         }
     }
     &__type {
@@ -353,10 +348,5 @@
     
 }
 
-.red-btn { 
-    background: var(--button-secondary-red) !important;
-    svg {
-        background-color: var(--color-primary-light);
-    }
-}
-.form-control-red:focus { border: 1px solid var(--button-secondary-red) !important;}
+.red { color: var(--button-secondary-red) !important}
+.red-focus:focus { border: 1px solid var(--button-secondary-red) !important;}

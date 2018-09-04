@@ -206,7 +206,7 @@
             border-color: var(--color-grey-light-2);
             
             &:focus {
-                border: 1px solid var(--button-primary-blue);
+                border: 1px solid var(--button-secondary-green);
                 box-shadow: none;
             }
         }
@@ -353,10 +353,5 @@
     
 }
 
-.red-btn { 
-    background: var(--button-secondary-red) !important;
-    svg {
-        background-color: var(--color-primary-light);
-    }
-}
+.red { color: var(--button-secondary-red) !important}
 .form-control-red:focus { border: 1px solid var(--button-secondary-red) !important;}

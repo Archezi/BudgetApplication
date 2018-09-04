@@ -173,49 +173,9 @@ var UIController = (function(){
     totalIncomeLabel: '.total__income-funds',
     totalExpenseLabel: '.total__expenses-funds',
     totalExpensePercentage: '.total__expenses-percentage',
-    historyContainer: '.history-panel',
-    itemPercentage: '.item_value_percentage',
-    dateLabel: '.current-date',
-    btnText: '.button-text'
+    historyContainer: '.history-panel'
     
-  };
-  var formatNumber = function(num, type) {
-    var numSplit, int, dec;
-    /** 
-     * + or - before number
-     * coma separating the thousands
-     * 
-     * 2310.4567 -> + 2,310.46
-     * 2000 -> 2,000.00
-     */
-
-     num = Math.abs(num)
-     num = num.toFixed(2);
-
-     numSplit = num.split('.')
-
-     int = numSplit[0];
-     if(int.length > 3) {
-       int = int.substr(0, int.length - 3) + ',' + int.substr(int.length -3 , int.length);
-     }
-
-     dec = numSplit[1];
-
-    //  type === 'exp' ? sign = '-' : sign === '+'
-    //  we can use this in different way
-
-    //  return type + ' ' + int + dec;
-    return (type === 'exp' ? '-' : '+') + ' ' + int + '.' + dec + ' €';
-
   }
-
-  var nodeListForEach = function(list, callback) {
-
-    for ( var i = 0; i < list.length; i++) {
-      callback(list[i], i);
-    }
-
-  };
 
   return {
 
@@ -238,18 +198,18 @@ var UIController = (function(){
       if( type === 'inc') {
 
         element = DOMstrings.incomeContainer; 
-        html = '<div class="list-item" id="inc-%id%"><div class="item__description">%description%</div><div class="right"><div class="item__value item__value-income"> %value%</div><div class="item__delete"><button type="button" class="item__delete--btn  "><svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="#000000" d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z" /></svg></button></div></div></div>'
+        html = '<div class="list-item" id="inc-%id%"><div class="item__description">%description%</div><div class="right"><div class="item__value item__value-income">&euro; %value%</div><div class="item__delete"><button type="button" class="item__delete--btn  "><svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="#000000" d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z" /></svg></button></div></div></div>'
       } else if (type === 'exp') {
 
         element = DOMstrings.expenseContainer;
-        html = '<div class="list-item" id="exp-%id%"><div class="item__description">%description%</div><div class="right"><div class="item__value item__value-expense"> %value%</div><div class="item_value_percentage">25%</div><div class="item__delete"><button type="button" class="item__delete--btn  "><svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="#000000" d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z" /></svg></button></div></div></div>'
+        html = '<div class="list-item" id="exp-%id%"><div class="item__description">%description%</div><div class="right"><div class="item__value item__value-expense">&euro; %value%</div><div class="item_value_percentage">25%</div><div class="item__delete"><button type="button" class="item__delete--btn  "><svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="#000000" d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z" /></svg></button></div></div></div>'
       }
 
       // 2. Replace the placeholder text with actual data
       newHtml = html.replace('%id%', obj.id);
       // because we already replace html with newHtml we will have to update now newHtml to further update our initial html
       newHtml = newHtml.replace('%description%', obj.description);
-      newHtml = newHtml.replace('%value%', formatNumber(obj.value, type));
+      newHtml = newHtml.replace('%value%', obj.value);
 
       // 3. Insert the HTML into the DOM before end of the div
       document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
@@ -281,11 +241,9 @@ var UIController = (function(){
     displayBudget: function(obj){
 
       // lest grab our data from displayBudget(budget);
-      obj.budget > 0 ? type = 'inc' : type = 'exp';
-
-      document.querySelector(DOMstrings.totalFoundsLabel).textContent = formatNumber(obj.budget, type) ;
-      document.querySelector(DOMstrings.totalIncomeLabel).textContent = formatNumber(obj.totalInc, 'inc');
-      document.querySelector(DOMstrings.totalExpenseLabel).textContent = formatNumber(obj.totalExp, 'exp');
+      document.querySelector(DOMstrings.totalFoundsLabel).textContent = obj.budget;
+      document.querySelector(DOMstrings.totalIncomeLabel).textContent = obj.totalInc;
+      document.querySelector(DOMstrings.totalExpenseLabel).textContent = obj.totalExp;
 
       // test if percentage is greater than 0 to eliminate result infinity when divide by 0
       if (obj.percentage > 0) {
@@ -295,64 +253,10 @@ var UIController = (function(){
       }
 
     },
-
-    displayPercentages: function(percentages) {
-
-      var fields = document.querySelectorAll(DOMstrings.itemPercentage);
-      //it will return node list
-
-      nodeListForEach(fields, function(current, index){
-        if (percentages[index] > 0 ) {
-          current.textContent = percentages[index] + '%';
-        } else {
-          current.textContent = '---';
-        }
-      });
-
-    },
-
-    displayMonth: function() {
-      var now, year, month, months;
-
-      now = new Date();
-
-      year = now.getFullYear();
-
-
-      month = now.getMonth();
-      months = ['January', 'February', 'March', 'April', 'May', 'Jun', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-      document.querySelector(DOMstrings.dateLabel).textContent = months[month]+ ' ' + year;
-    },
-
-    changedType: function() {
-        var btn, btnText;
-        var fields = document.querySelectorAll(
-          DOMstrings.inputType + ',' +
-          DOMstrings.inputDescription + ',' +
-          DOMstrings.inputValue );
-
-          nodeListForEach(fields, function(cur) {
-            cur.classList.toggle('form-control-red');
-          });
-
-          btn = document.querySelector(DOMstrings.inputBtn);
-          btn.classList.toggle('red-btn');
-          btnText = document.querySelector(DOMstrings.btnText);
-
-          // if (btnText.innerHTML === 'Add funds') {
-          //   btnText.innerHTML = 'Add expenses'
-          // } else {
-          //   btnText.innerHTML = 'Add funds'
-          // }
-    },
-    
-
     getDOMstrings: function() {
       return DOMstrings;
     }
-
-  };
+  }
 
 
 })();
@@ -379,7 +283,6 @@ var controller = (function(budgetCtrl, UICtrl) {
 
     document.querySelector(DOM.historyContainer).addEventListener('click', ctrlDeleteItem)
 
-    document.querySelector(DOM.inputType).addEventListener('change', UICtrl.changedType)
   };
 
   var updateBudget = function() {
@@ -396,14 +299,13 @@ var controller = (function(budgetCtrl, UICtrl) {
 
   var updatePercentages = function() {
 
-    var percentages;
+    var percentage;
     // 1. Calculate the percentages
     budgetCtrl.calculatePercentages();
     // 2. Read percentages from the budget controller 
     percentages = budgetCtrl.getPercentages();
     // 3. Update the UI with the new percentages
-    UICtrl.displayPercentages(percentages);
-    
+    console.log(percentages);
   };
 
 
@@ -460,8 +362,7 @@ var controller = (function(budgetCtrl, UICtrl) {
   return {
     init: function() {
       console.log('Application has started');
-      setupEventListeners();
-      UIController.displayMonth();
+      setupEventListeners()
       UICtrl.displayBudget({
         budget: 0,
         totalInc: 0,

@@ -175,8 +175,7 @@ var UIController = (function(){
     totalExpensePercentage: '.total__expenses-percentage',
     historyContainer: '.history-panel',
     itemPercentage: '.item_value_percentage',
-    dateLabel: '.current-date',
-    btnText: '.button-text'
+    dateLabel: '.current-date'
     
   };
   var formatNumber = function(num, type) {
@@ -312,40 +311,15 @@ var UIController = (function(){
     },
 
     displayMonth: function() {
-      var now, year, month, months;
+      var now, year, month;
 
       now = new Date();
 
       year = now.getFullYear();
 
-
-      month = now.getMonth();
-      months = ['January', 'February', 'March', 'April', 'May', 'Jun', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-      document.querySelector(DOMstrings.dateLabel).textContent = months[month]+ ' ' + year;
+      document.querySelector(DOMstrings.dateLabel).textContent = year;
     },
 
-    changedType: function() {
-        var btn, btnText;
-        var fields = document.querySelectorAll(
-          DOMstrings.inputType + ',' +
-          DOMstrings.inputDescription + ',' +
-          DOMstrings.inputValue );
-
-          nodeListForEach(fields, function(cur) {
-            cur.classList.toggle('form-control-red');
-          });
-
-          btn = document.querySelector(DOMstrings.inputBtn);
-          btn.classList.toggle('red-btn');
-          btnText = document.querySelector(DOMstrings.btnText);
-
-          // if (btnText.innerHTML === 'Add funds') {
-          //   btnText.innerHTML = 'Add expenses'
-          // } else {
-          //   btnText.innerHTML = 'Add funds'
-          // }
-    },
     
 
     getDOMstrings: function() {
@@ -379,7 +353,6 @@ var controller = (function(budgetCtrl, UICtrl) {
 
     document.querySelector(DOM.historyContainer).addEventListener('click', ctrlDeleteItem)
 
-    document.querySelector(DOM.inputType).addEventListener('change', UICtrl.changedType)
   };
 
   var updateBudget = function() {

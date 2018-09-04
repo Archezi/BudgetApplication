@@ -202,13 +202,8 @@
                 
         .form-control {
             font-size: 1.8rem;
-            border-radius: 0.5rem;
+            border-radius: 0;
             border-color: var(--color-grey-light-2);
-            
-            &:focus {
-                border: 1px solid var(--button-primary-blue);
-                box-shadow: none;
-            }
         }
     }
     &__type {
@@ -284,6 +279,10 @@
         margin: 0.5rem 0;
         font-size: 1.6rem;
         line-height: 1.7em;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        justify-content: space-between;
+        align-items: center;
         height: 2rem;
         border-bottom:0.05rem solid var(--color-grey-light-3);
         transition: transform 0.3s ;
@@ -316,7 +315,7 @@
     background-color: var(--button-secondary-red);
     padding: 0 0.5rem;
     color: var(--color-white);
-    border-radius: 0.3rem;
+    border-radius: 0.5rem;
 }
 .item__delete {
     transition: transform 0.3s ;
@@ -352,11 +351,3 @@
     font-size: 1.5rem;
     
 }
-
-.red-btn { 
-    background: var(--button-secondary-red) !important;
-    svg {
-        background-color: var(--color-primary-light);
-    }
-}
-.form-control-red:focus { border: 1px solid var(--button-secondary-red) !important;}

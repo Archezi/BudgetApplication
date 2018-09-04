@@ -326,7 +326,7 @@ var UIController = (function(){
     },
 
     changedType: function() {
-        var btn, btnText;
+        var btn;
         var fields = document.querySelectorAll(
           DOMstrings.inputType + ',' +
           DOMstrings.inputDescription + ',' +
@@ -338,13 +338,12 @@ var UIController = (function(){
 
           btn = document.querySelector(DOMstrings.inputBtn);
           btn.classList.toggle('red-btn');
-          btnText = document.querySelector(DOMstrings.btnText);
-
-          // if (btnText.innerHTML === 'Add funds') {
-          //   btnText.innerHTML = 'Add expenses'
-          // } else {
-          //   btnText.innerHTML = 'Add funds'
-          // }
+          
+          if (btn.textContent === 'Add Funds') {
+            btn.textContent = 'Add expenses'
+          } else {
+            btn.textContent = 'Add funds'
+          }
     },
     
 

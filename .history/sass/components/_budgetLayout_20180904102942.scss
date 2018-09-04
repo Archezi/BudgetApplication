@@ -31,14 +31,11 @@
     display: grid;
     grid-gap: 2rem;
     grid-template-columns: repeat(3, 1fr);
-    .budget__title {
+    .current-month {
         position: absolute;
-        width: 100%;
-        text-align: center;
-        top: 1rem;
+        top: 5rem;
         left: 50%;
         transform: translateX(-50%);
-        font-size:1.8rem;
     }         
     .total {
         &__available-funds {

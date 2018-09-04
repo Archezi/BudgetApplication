@@ -273,8 +273,11 @@ body {
 
 .input__section .form-control {
   font-size: 1.8rem;
-  border-radius: 0;
+  border-radius: 0.5rem;
   border-color: var(--color-grey-light-2); }
+  .input__section .form-control:focus {
+    border: 1px solid var(--button-primary-blue);
+    box-shadow: none; }
 
 .input__option {
   width: 100%; }
@@ -311,10 +314,6 @@ body {
   margin: 0.5rem 0;
   font-size: 1.6rem;
   line-height: 1.7em;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  justify-content: space-between;
-  align-items: center;
   height: 2rem;
   border-bottom: 0.05rem solid var(--color-grey-light-3);
   transition: transform 0.3s;
@@ -324,7 +323,7 @@ body {
     border-bottom: 0.05rem solid var(--button-primary-blue); }
     .list-item:hover .item__delete--btn {
       display: block; }
-    .list-item:hover .item__value {
+    .list-item:hover .item__value, .list-item:hover .item_value_percentage {
       transform: translateX(-2rem); }
     .list-item:hover .item__delete--btn {
       transform: translateX(-1rem);
@@ -333,8 +332,16 @@ body {
 .right {
   transition: transform 0.6s; }
 
-.item__value {
+.item__value,
+.item_value_percentage {
   transition: transform 0.3s; }
+
+.item_value_percentage {
+  font-size: 1.2rem;
+  background-color: var(--button-secondary-red);
+  padding: 0 0.5rem;
+  color: var(--color-white);
+  border-radius: 0.3rem; }
 
 .item__delete {
   transition: transform 0.3s;
@@ -345,7 +352,6 @@ body {
     transition: transform 2s;
     transition: opacity 1s;
     background: transparent;
-    float: right;
     border: none;
     display: none;
     cursor: pointer; }
@@ -356,6 +362,14 @@ body {
 .history__expense-title,
 .history__income-title {
   font-size: 1.5rem; }
+
+.red-btn {
+  background: var(--button-secondary-red) !important; }
+  .red-btn svg {
+    background-color: var(--color-primary-light); }
+
+.form-control-red:focus {
+  border: 1px solid var(--button-secondary-red) !important; }
 
 .sidebar {
   border-right: var(--line);
@@ -375,9 +389,18 @@ body {
   display: grid;
   grid-gap: 2rem;
   grid-template-columns: repeat(3, 1fr); }
+  .overview .budget__title {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.8rem; }
   .overview .total__available-funds {
     display: grid;
-    grid-template-columns: 10rem 10rem;
+    position: relative;
+    grid-template-columns: 1fr 1fr;
     grid-auto-rows: auto;
     align-items: center;
     justify-content: center; }
@@ -390,7 +413,7 @@ body {
     align-self: start; }
   .overview .total__income {
     display: grid;
-    grid-template-columns: 10rem 10rem;
+    grid-template-columns: 1fr 1fr;
     grid-auto-rows: auto;
     align-items: center;
     justify-content: center; }
@@ -403,7 +426,7 @@ body {
       align-self: start; }
   .overview .total__expenses {
     display: grid;
-    grid-template-columns: 10rem 10rem;
+    grid-template-columns: 1fr 1fr;
     grid-auto-rows: auto;
     align-items: center;
     justify-content: center; }
@@ -476,6 +499,10 @@ body {
   margin: 0 0 1rem; }
 
 .list-item {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  justify-content: space-between;
+  align-items: center;
   height: 4rem; }
   .list-item .item__description {
     grid-column: span 3; }
@@ -483,5 +510,6 @@ body {
     justify-self: end;
     align-self: center;
     display: grid;
-    grid-column: span 1;
+    grid-gap: 0.5rem;
+    grid-column: span 3;
     grid-auto-flow: column; }

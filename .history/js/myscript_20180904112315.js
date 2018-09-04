@@ -175,8 +175,7 @@ var UIController = (function(){
     totalExpensePercentage: '.total__expenses-percentage',
     historyContainer: '.history-panel',
     itemPercentage: '.item_value_percentage',
-    dateLabel: '.current-date',
-    btnText: '.button-text'
+    dateLabel: '.current-date'
     
   };
   var formatNumber = function(num, type) {
@@ -326,7 +325,7 @@ var UIController = (function(){
     },
 
     changedType: function() {
-        var btn, btnText;
+        var btn;
         var fields = document.querySelectorAll(
           DOMstrings.inputType + ',' +
           DOMstrings.inputDescription + ',' +
@@ -338,13 +337,7 @@ var UIController = (function(){
 
           btn = document.querySelector(DOMstrings.inputBtn);
           btn.classList.toggle('red-btn');
-          btnText = document.querySelector(DOMstrings.btnText);
-
-          // if (btnText.innerHTML === 'Add funds') {
-          //   btnText.innerHTML = 'Add expenses'
-          // } else {
-          //   btnText.innerHTML = 'Add funds'
-          // }
+          
     },
     
 
