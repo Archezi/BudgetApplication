@@ -1,0 +1,67 @@
+.web__container {
+    max-width: 100% !important;
+    min-height: 100vh;
+    margin: 0 auto;
+    
+}
+
+.header {
+    height: $header-height;
+    background: var(--color-white);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+///////////////////////////////////////
+// SIDEBAR  
+
+.sidebar {
+    border-right: var(--line);
+    background-color: var(--color-background-light);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 25rem;
+    margin-top: $header-height;
+    // width: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: calc(100vh );
+    z-index: 999;
+
+    @include respond(phone) {
+        display:none;
+    }
+}
+//////////////////////////////////////////////
+// MAIN
+// All the content is going over here 
+.main {
+    margin-top: $header-height;
+    padding: 4rem 4rem 7rem 29rem;
+    width: 100%;
+    min-height: calc(100vh - 7rem);
+    display: grid;
+    grid-gap: 2rem;
+    grid-auto-rows: 20rem 10rem auto;
+
+    @include respond(phone) {
+        padding: 2rem;
+    }
+}
+//////////////////////////////////////////////
+// Footer
+.footer {
+    position: absolute;
+    bottom: 0;
+    background: var(--color-white);
+    z-index: 1;
+    height: $header-height;
+    width: calc(100%);
+    z-index: 100;
+}
